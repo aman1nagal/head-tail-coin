@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head-Tail</title>
+</head>
+<body>
+   
+    <h1>Toss</h1>
+    <button>
+        Head
+    </button>
+    <button>
+        Tail
+    </button>
+    <div class="output">
+
+    </div>
+    <script>
+        let btns=document.querySelectorAll("button")
+        let output=document.querySelector('.output')
+        for(let t of btns){
+            t.addEventListener("click",()=>{toss(t.innerText)})
+        }
+        let user=0
+        let computer=0
+        function toss(userchoice){
+            console.log(userchoice);
+            let choise=['Head','Tail']
+            let random=Math.floor(Math.random() *choise.length )
+            let tossvalue=choise[random]
+            tossvalue==userchoice?user++:computer++
+            output.innerHTML=`ComputerScore ${computer} And UserScore ${user}`
+        }
+    </script>
+</body>
+</html>
